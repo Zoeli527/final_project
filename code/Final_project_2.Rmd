@@ -1,0 +1,54 @@
+---
+title: "Final project draft 2"
+author: "Zoe Li"
+date: "`r Sys.Date()`"
+output: html_document
+---
+# Introduction
+The Behavioral Risk Factor Surveillance System (BRFSS) is one of the largest health surveys conducted in the U.S., coordinated by the Centers for Disease Control and Prevention (CDC). It gathers data on health-related risk behaviors, chronic health conditions, and the use of preventive services among adults across all 50 states. The BRFSS conducts annual landline and mobile phone surveys with individuals aged 18 and older. This data analysis aims to utilize Adverse Childhood Experience (ACE) data from the 2020 BRFSS dataset to explore the relationship between ACEs and adult mental health outcomes.
+
+```{r, dataset}
+
+here::i_am("code/Final_project_2.Rmd")
+data <- readRDS(
+  file = here::here("derived_data/data_clean.rds")
+)
+
+```
+
+# Table for demographics
+
+```{r}
+summary_table <- readRDS(
+  file = here::here("output/table_one.rds")
+)
+summary_table
+
+```
+
+## Table description
+
+The table presents the demographic characteristics of the respondents. A value of 1 represents low education, unemployment, low income, and unmarried status. Employment status shows the greatest variation among participants, with most reporting being employed.
+
+# Logistic regression
+
+```{r}
+logistic_regression <- readRDS(
+  file = here::here("output/logistic_regression.rds")
+)
+logistic_regression
+```
+
+# Data visualization
+
+```{r}
+knitr::include_graphics(
+  here::here("output/bar_chart.png")
+)
+```
+
+
+## Figure description
+The bar chart for the logistic regression displays the odds ratios for the variables in relation to mental health outcome. Marital status, education level, employment status, and annual household income were included as covariates to reduce bias in the results. According to the chart, most adverse childhood experiences are associated with a higher likelihood of developing mental health issues compared to individuals without such experiences. Among these, growing up surrounded by family members with depression appears to have the strongest impact on children's mental health.
+
+
