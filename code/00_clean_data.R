@@ -1,5 +1,5 @@
 here::i_am("code/00_clean_data.R")
-absolute_path_to_data <- here::here("raw_data", "brfss2020.csv")
+absolute_path_to_data <- here::here("raw_data", "reduced_file.csv")
 brfss <- read.csv(absolute_path_to_data, header = TRUE)
 
 # Create a new dataset with only the variables I need, and remove rows containing NA values.

@@ -3,7 +3,7 @@ output/Final_project_2.html: code/Final_project_2.Rmd code/04_render_report.R de
 	Rscript code/04_render_report.R
 
 # Cleaned data
-derived_data/data_clean.rds: raw_data/brfss2020.csv code/00_clean_data.R
+derived_data/data_clean.rds: raw_data/reduced_file.csv code/00_clean_data.R
 	Rscript code/00_clean_data.R
 
 # Summary table
