@@ -17,6 +17,10 @@ output/logistic_regression.rds: derived_data/data_clean.rds code/02_models.R
 # Bar chart
 output/bar_chart.png: derived_data/data_clean.rds output/logistic_regression.rds code/03_make_bar_chart.R
 	Rscript code/03_make_bar_chart.R
+	
+# make install
+install:
+	Rscript -e "renv::restore()"
 
 # Clean
 .PHONY: clean
@@ -24,4 +28,5 @@ clean:
 	rm output/*.rds && \
 	rm output/*.png && \
 	rm output/*.html
+	rm -rf renv/library
 	
