@@ -29,4 +29,23 @@ clean:
 	rm output/*.png && \
 	rm output/*.html
 	rm -rf renv/library
+
+# Define variables for clarity
+PROJECT_DIR := $(shell pwd)
+REPORT_DIR := $(PROJECT_DIR)/output
+IMAGE_NAME := final_project
+
+# Targets
+.PHONY: all install clean build run-report
+
+all: install build run-report
+
+install:
+	Rscript -e "renv::restore()"
+
+build:
+	docker build -t $(IMAGE_NAME) .
+
+run-report:
+	docker run -v $(REPORT_DIR):/report $(IMAGE_NAME)
 	

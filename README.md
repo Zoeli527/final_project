@@ -26,3 +26,9 @@
 `code/Final_project_2.Rmd`
 - read data, tables, and figures from respective locations
 - display results for production report
+
+# Build the Docker image
+bash `docker build -t final_report .`
+
+# Start a container based on the built image and mount the local `report` directory to the container's `/report` directory
+bash `docker run -v $(pwd)/report:/report final_project`
